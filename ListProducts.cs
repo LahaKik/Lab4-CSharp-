@@ -40,5 +40,12 @@ namespace Лаба4_CSharp_
             }
             return str;
         }
+        public void DeleteAll() 
+            => products.Clear();
+
+        public void DeleteProduct(int id)
+        {
+            products.RemoveAt(id-1);
+        }
     }
 }

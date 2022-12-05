@@ -1,19 +1,15 @@
-﻿
-
-using System.Security.Cryptography.X509Certificates;
-
-namespace Лаба4_CSharp_
+﻿namespace Лаба4_CSharp_
 {
     public class Date
     {
         private int _day;
         private int _month; 
         private int _year;
-        private const string Separator = "/.,";
+        private readonly char[] separateDate = { '/', '.', ',' };
 
         public Date(string EndDate)
         {
-            string[] Nums = EndDate.Split('/');
+            string[] Nums = EndDate.Split(separateDate);
             try
             {
             _day = int.Parse(Nums[0]);

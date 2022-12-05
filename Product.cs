@@ -34,6 +34,8 @@ namespace Лаба4_CSharp_
         {
             return (Id + "\t" + _name + "\t\t\t" + _weight + "\t" + _price + "\t" + _num + "\t\t" + _endDate.ToString() + "\t\t\t\t" + _sale);
         }
+
+        
     }
 }
 

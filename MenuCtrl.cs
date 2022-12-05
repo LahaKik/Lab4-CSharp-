@@ -102,8 +102,15 @@ namespace Лаба4_CSharp_
             Console.Clear();
             try
             {
+                products.DeleteAll();
                 StreamReader loadFile = new StreamReader("C:\\LabProgr\\Save.txt");
-                string readedFileAsStr = loadFile.ReadToEnd();
+                loadFile.ReadLine();
+                string line = loadFile.ReadLine();
+                while (line != "")
+                {
+                    products.AddProduct(ReadProduct(line));
+                    line = loadFile.ReadLine();
+                }
 
             }
             catch
@@ -111,6 +118,13 @@ namespace Лаба4_CSharp_
                 Console.WriteLine("Файл не найден");
                 Console.Read();
             }
+        }
+
+        private Product ReadProduct(string line)
+        {
+            string[] prodFields = line.Split('\t', options: StringSplitOptions.RemoveEmptyEntries);
+            return new Product(prodFields[1], float.Parse(prodFields[2]), float.Parse(prodFields[3]), int.Parse(prodFields[4]),
+                new Date(prodFields[5]), bool.Parse(prodFields[6]));
         }
 
         private enum State
