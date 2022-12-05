@@ -25,7 +25,14 @@ namespace Лаба4_CSharp_
                 Console.Clear();
                 PrintMenu();
                 string? inpNum = Console.ReadLine();
+                try
+                {
                 state = (State)(int.Parse((inpNum == "" || inpNum == " " || inpNum == "\t") ? "0" : inpNum));
+                }
+                catch 
+                {
+                    state = State.startMenu;
+                }
                 switch (state)
                 {
                     case State.startMenu:
@@ -36,10 +43,12 @@ namespace Лаба4_CSharp_
                         break;
 
                     case State.deleteMenu:
+                        DeleteMenu();
                         break;
 
                     case State.showListMenu:
                         ShowList();
+                        Console.ReadLine();
                         break;
 
                     case State.saveMenu:
@@ -68,8 +77,9 @@ namespace Лаба4_CSharp_
                 "2 - Удалить товар(ы)\r\n" +
                 "3 - Показать список товаров\r\n" +
                 "4 - Сохранить список в файл\r\n" +
-                "5 - Загрузить из файла\r\n" +
+                "5 - Загрузить из файла\r\n\n" +
                 "9 - Выход");
+            Console.Write("Действие: ");
         }
 
         private void InputProductMenu()
@@ -81,10 +91,18 @@ namespace Лаба4_CSharp_
                     new Date(input[4]), bool.Parse(input[5])));
         }
 
+        private void DeleteMenu()
+        {
+            ShowList();
+            Console.Write("(Для отмены вредите несуществующий номер)\r\n" +
+                "Удаляемый товар с ID:");
+            int delID = int.Parse(Console.ReadLine());
+            products.DeleteProduct(delID);
+        }
+
         private void ShowList()
         {
             products.Print();
-            Console.ReadLine();
         }
 
         private void SaveMenu()
@@ -111,7 +129,9 @@ namespace Лаба4_CSharp_
                     products.AddProduct(ReadProduct(line));
                     line = loadFile.ReadLine();
                 }
-
+                loadFile.Close();
+                Console.WriteLine("Успешно загруженно");
+                Console.Read();
             }
             catch
             {

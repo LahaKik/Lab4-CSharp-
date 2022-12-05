@@ -17,6 +17,14 @@ namespace Лаба4_CSharp_
 
         public void AddProduct(Product product)
         {
+            foreach (Product prod in products)
+            {
+                if(prod.Compare(product))
+                {
+                    prod.Num += product.Num;
+                    return;
+                }
+            }
             products.Add(product);
             product.Id = tId;
             tId++;
@@ -40,12 +48,29 @@ namespace Лаба4_CSharp_
             }
             return str;
         }
+
         public void DeleteAll() 
             => products.Clear();
 
         public void DeleteProduct(int id)
         {
-            products.RemoveAt(id-1);
+            Console.Clear();
+            try
+            {
+                products.RemoveAt(id-1);
+                for (int i = id-1; i < products.Count; i++)
+                {
+                    products[i].Id--;
+                }
+                tId--;
+                Console.WriteLine("Удалено");
+                Console.Read();
+            }
+            catch 
+            { 
+                Console.WriteLine("Отменено");
+                Console.Read();
+            }
         }
     }
 }

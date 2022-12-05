@@ -10,32 +10,37 @@ namespace Лаба4_CSharp_
     {
         public int Id;
 
-        private string _name;
-        private float _weight;
-        private float _price;
-        private int _num;
-        private Date _endDate;
-        private bool _sale;
+        public string Name;
+        public float Weight;
+        public float Price;
+        public int Num;
+        public Date EndDate;
+        public bool Sale;
 
         public Product(string name, float weight, float price, int num, Date endDate, bool sale)
         {
-            _name = name;
-            _weight = weight;
-            _price = price;
-            _num = num;
-            _endDate = endDate;
-            _sale = sale;
+            Name = name;
+            Weight = weight;
+            Price = price;
+            Num = num;
+            EndDate = endDate;
+            Sale = sale;
         }
 
         public void Print()
-            => Console.WriteLine(Id + "\t" + _name + "\t\t\t" + _weight + "\t" + _price + "\t" + _num + "\t\t" + _endDate.ToString() + "\t\t\t\t" + _sale);
+            => Console.WriteLine(Id + "\t" + Name + "\t\t\t" + Weight + "\t" + Price + "\t" + Num + "\t\t" + EndDate.ToString() + "\t\t\t\t" + Sale);
 
         internal string PrintInFile()
         {
-            return (Id + "\t" + _name + "\t\t\t" + _weight + "\t" + _price + "\t" + _num + "\t\t" + _endDate.ToString() + "\t\t\t\t" + _sale);
+            return (Id + "\t" + Name + "\t\t\t" + Weight + "\t" + Price + "\t" + Num + "\t\t" + EndDate.ToString() + "\t\t\t\t" + Sale);
         }
 
-        
+        public bool Compare(Product other)
+        {
+            if(Name == other.Name && Weight == other.Weight && Price == other.Price && EndDate == other.EndDate && Sale == other.Sale)
+                return true;
+            return false;
+        }
     }
 }
 
