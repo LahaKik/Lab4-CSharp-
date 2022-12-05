@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Лаба4_CSharp_
+﻿namespace Лаба4_CSharp_
 {
     public class InputCtrl
     {
@@ -50,7 +44,7 @@ namespace Лаба4_CSharp_
             return s;
         }
 
-        private bool ChechSym(string str, Mode mode) 
+        private bool ChechSym(string str, Mode mode)
         {
             switch (mode)
             {
@@ -60,44 +54,44 @@ namespace Лаба4_CSharp_
                 case Mode.Num:
                     foreach (char sym in str)
                     {
-                        if(!nums.Contains(sym))
+                        if (!nums.Contains(sym))
                             return false;
                     }
                     return true;
 
                 case Mode.Date:
-                    string[] numsDate = str.Split(separateDate, 
+                    string[] numsDate = str.Split(separateDate,
                         options: StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
                     try
                     {
-                    foreach (char sym in numsDate[0])
-                    {
-                        if (!nums.Contains(sym))
+                        foreach (char sym in numsDate[0])
+                        {
+                            if (!nums.Contains(sym))
+                                return false;
+                        }
+                        int day = int.Parse(numsDate[0]);
+                        if (day < 0 || day > 31)
                             return false;
-                    }
-                    int day = int.Parse(numsDate[0]);
-                    if(day < 0 || day > 31)
-                        return false;
 
-                    foreach (char sym in numsDate[1])
-                    {
-                        if (!nums.Contains(sym))
+                        foreach (char sym in numsDate[1])
+                        {
+                            if (!nums.Contains(sym))
+                                return false;
+                        }
+                        int month = int.Parse(numsDate[1]);
+                        if (month < 0 || month > 12)
                             return false;
-                    }
-                    int month = int.Parse(numsDate[1]);
-                    if (month < 0 || month > 12)
-                        return false;
 
-                    foreach (char sym in numsDate[2])
-                    {
-                        if (!nums.Contains(sym))
-                            return false;
-                    }
-                    return true;
+                        foreach (char sym in numsDate[2])
+                        {
+                            if (!nums.Contains(sym))
+                                return false;
+                        }
+                        return true;
                     }
 
                     catch
-                    { 
+                    {
                         return false;
                     }
 

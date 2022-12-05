@@ -1,11 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Лаба4_CSharp_
+﻿namespace Лаба4_CSharp_
 {
     public class MenuCtrl
     {
@@ -20,16 +13,16 @@ namespace Лаба4_CSharp_
             bool IsExit = false;
             State? state = State.startMenu;
 
-            while(!IsExit)
+            while (!IsExit)
             {
                 Console.Clear();
                 PrintMenu();
                 string? inpNum = Console.ReadLine();
                 try
                 {
-                state = (State)(int.Parse((inpNum == "" || inpNum == " " || inpNum == "\t") ? "0" : inpNum));
+                    state = (State)(int.Parse((inpNum == "" || inpNum == " " || inpNum == "\t") ? "0" : inpNum));
                 }
-                catch 
+                catch
                 {
                     state = State.startMenu;
                 }
@@ -53,7 +46,7 @@ namespace Лаба4_CSharp_
 
                     case State.saveMenu:
                         SaveMenu();
-                        break; 
+                        break;
 
                     case State.loadMenu:
                         LoadMenu();

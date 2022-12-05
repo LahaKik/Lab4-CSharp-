@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Лаба4_CSharp_
+﻿namespace Лаба4_CSharp_
 {
     public class Product
     {
@@ -37,7 +31,7 @@ namespace Лаба4_CSharp_
 
         public bool Compare(Product other)
         {
-            if(Name == other.Name && Weight == other.Weight && Price == other.Price && EndDate == other.EndDate && Sale == other.Sale)
+            if (Name == other.Name && Weight == other.Weight && Price == other.Price && EndDate == other.EndDate && Sale == other.Sale)
                 return true;
             return false;
         }

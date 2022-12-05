@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Лаба4_CSharp_
+﻿namespace Лаба4_CSharp_
 {
     public class ListProducts
     {
@@ -19,7 +13,7 @@ namespace Лаба4_CSharp_
         {
             foreach (Product prod in products)
             {
-                if(prod.Compare(product))
+                if (prod.Compare(product))
                 {
                     prod.Num += product.Num;
                     return;
@@ -49,7 +43,7 @@ namespace Лаба4_CSharp_
             return str;
         }
 
-        public void DeleteAll() 
+        public void DeleteAll()
             => products.Clear();
 
         public void DeleteProduct(int id)
@@ -57,8 +51,8 @@ namespace Лаба4_CSharp_
             Console.Clear();
             try
             {
-                products.RemoveAt(id-1);
-                for (int i = id-1; i < products.Count; i++)
+                products.RemoveAt(id - 1);
+                for (int i = id - 1; i < products.Count; i++)
                 {
                     products[i].Id--;
                 }
@@ -66,8 +60,8 @@ namespace Лаба4_CSharp_
                 Console.WriteLine("Удалено");
                 Console.Read();
             }
-            catch 
-            { 
+            catch
+            {
                 Console.WriteLine("Отменено");
                 Console.Read();
             }
