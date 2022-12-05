@@ -10,17 +10,9 @@
         public Date(string EndDate)
         {
             string[] Nums = EndDate.Split(separateDate);
-            try
-            {
-                _day = int.Parse(Nums[0]);
-                _month = int.Parse(Nums[1]);
-                _year = int.Parse(Nums[2]);
-
-            }
-            catch
-            {
-
-            }
+            _day = int.Parse(Nums[0]);
+            _month = int.Parse(Nums[1]);
+            _year = int.Parse(Nums[2]);
         }
 
         public Date(int day, int month, int year)
@@ -30,10 +22,8 @@
             _year = year;
         }
 
-        public override string ToString()
-        {
-            return (_day.ToString() + "/" + _month.ToString() + "/" + _year.ToString());
-        }
+        public override string ToString() 
+            => (_day.ToString() + "/" + _month.ToString() + "/" + _year.ToString());
     }
 
 }

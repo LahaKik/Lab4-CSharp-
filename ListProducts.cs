@@ -5,7 +5,6 @@
         private static ListProducts _instance;
         public static ListProducts Instance => _instance ??= new ListProducts();
 
-
         private List<Product> products = new List<Product>();
         private int tId = 1;
 
@@ -33,6 +32,7 @@
                 product.Print();
             }
         }
+
         public string PrintInFile()
         {
             string str = "";

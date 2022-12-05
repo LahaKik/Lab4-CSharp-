@@ -4,10 +4,11 @@
     {
         private static InputCtrl _instance;
         public static InputCtrl Instance => _instance ??= new InputCtrl();
+
         private const string nums = "0123456789.,";
         private readonly char[] separateDate = { '/', '.', ',' };
 
-        internal string[] ChechProduct()
+        public string[] ChechProduct()
         {
             string[] correctInput = { "", "", "", "", "", "" };
 

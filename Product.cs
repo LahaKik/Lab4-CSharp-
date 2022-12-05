@@ -24,7 +24,7 @@
         public void Print()
             => Console.WriteLine(Id + "\t" + Name + "\t\t\t" + Weight + "\t" + Price + "\t" + Num + "\t\t" + EndDate.ToString() + "\t\t\t\t" + Sale);
 
-        internal string PrintInFile()
+        public string PrintInFile()
         {
             return (Id + "\t" + Name + "\t\t\t" + Weight + "\t" + Price + "\t" + Num + "\t\t" + EndDate.ToString() + "\t\t\t\t" + Sale);
         }
